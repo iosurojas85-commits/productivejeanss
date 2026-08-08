@@ -23,6 +23,8 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Build APK with Gradle
+      # Reemplaza 'productive-jeans' por el nombre EXACTO de la carpeta donde están tus archivos
+      working-directory: ./productivejeanss
       run: gradle assembleDebug
 
     - name: Upload APK
