@@ -16,7 +16,6 @@ jobs:
     - name: Unzip project file
       run: |
         unzip -o *.zip -d project_extracted
-        # Mueve el contenido si quedó dentro de una subcarpeta al descomprimir
         if [ -d project_extracted/* ]; then
           mv project_extracted/*/* project_extracted/ 2>/dev/null || true
         fi
@@ -38,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
-        path: "**/build/outputs/apk/debug/*.apk""
+        path: "**/build/outputs/apk/debug/*.apk"
