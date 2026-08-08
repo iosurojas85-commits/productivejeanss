@@ -1,0 +1,6 @@
+{
+  "name": "Productive Jeans",
+  "description": "Productive Jeans - Y2K productivity app with Gemini AI coach chat, interactive screen widgets including a Pomodoro call widget with Play/Pause, cute task notes, and study stats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
