@@ -13,6 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Unzip project file
+      run: |
+        unzip -o *.zip -d project_extracted
+        # Mueve el contenido si quedó dentro de una subcarpeta al descomprimir
+        if [ -d project_extracted/* ]; then
+          mv project_extracted/*/* project_extracted/ 2>/dev/null || true
+        fi
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -23,10 +31,11 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Build APK with Gradle
+      working-directory: ./project_extracted
       run: gradle assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
-        path: "**/build/outputs/apk/debug/*.apk"
+        path: "**/build/outputs/apk/debug/*.apk""
